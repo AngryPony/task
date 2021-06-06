@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Task</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%=stylesheet_link_tag 'https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css' %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+  <header>
+    <div class="d-flex flex-column flex-md-row align-items-center pb-3 mb-4 border-bottom">
+      <a href="/" class="d-flex align-items-center text-dark text-decoration-none">
+
+        <span class="fs-4">TourBases</span>
+      </a>
+
+      <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto">
+        <span class="me-3 py-2 text-dark text-decoration-none"><%= link_to "Main Page", home_path %></span>
+        <span class="me-3 py-2 text-dark text-decoration-none"><%= link_to "Countries", allCountries_path%></span>
+      </nav>
+      <span class="me-3 py-2 text-dark text-decoration-none"><%= link_to "Post add", home_path%></span>
+    </div>
+  </header>
+
+  <div class="container">
+    <%= yield %>
+  </div>
+
+  </body>
+</html>
