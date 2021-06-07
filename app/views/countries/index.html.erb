@@ -1,0 +1,17 @@
+<h1>All countries</h1>
+
+<% @countries.each do |country| %>
+  <div class="card">
+    <div class="card-body">
+    <h4><%=country.name %></h4>
+
+    <%= link_to "Edit", edit_country_path(country), :class => 'btn btn-warning btn-sm'%>
+    <%= link_to "Delete", country_path(country), method: :delete,remote: true, data:{confirm: "Are you sure?"},:class => 'btn btn-danger btn-sm'%>
+      <%= link_to "More info", country_path(country), :class => 'btn btn-primary btn-sm'%>
+    </div>
+  </div>
+<% end %>
+<hr>
+<div class="alert alert-light"><%= link_to "Add new country", new_country_path,:class => 'btn btn-outline-primary' %>
+
+</div>

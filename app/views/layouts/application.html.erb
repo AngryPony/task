@@ -10,25 +10,41 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-  <header>
-    <div class="d-flex flex-column flex-md-row align-items-center pb-3 mb-4 border-bottom">
-      <a href="/" class="d-flex align-items-center text-dark text-decoration-none">
 
-        <span class="fs-4">TourBases</span>
-      </a>
+  <nav class="navbar navbar-expand-lg navbar-light " style="background-color: #e3f2fd;">
+    <div class="container-fluid">
+      <a><%= link_to "Main page", home_path, class: "navbar-brand mb-0 h1" %></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
 
-      <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto">
-        <span class="me-3 py-2 text-dark text-decoration-none"><%= link_to "Main Page", home_path %></span>
-        <span class="me-3 py-2 text-dark text-decoration-none"><%= link_to "Countries", allCountries_path%></span>
-      </nav>
-      <span class="me-3 py-2 text-dark text-decoration-none"><%= link_to "Post add", home_path%></span>
+          </li>
+          <li class="nav-item">
+            <a><%= link_to "Countries", allCountries_path, class: "nav-link active" %></a>
+          <li class="nav-item">
+            <a><%= link_to "Regions", regions_path, class: "nav-link active" %></a>
+          </li>
+          <li class="nav-item">
+            <a><%= link_to "Cities", regions_path, class: "nav-link active" %></a>
+          </li>
+          <li class="nav-item">
+            <a><%= link_to "Camp sites", regions_path, class: "nav-link active" %></a>
+          </li>
+        </ul>
+        <form class="d-flex">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+      </div>
     </div>
-  </header>
+  </nav>
 
   <div class="container">
     <%= yield %>
   </div>
 
-  </body>
+
 </html>

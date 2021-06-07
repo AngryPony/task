@@ -1,0 +1,17 @@
+<h2>Edit country</h2>
+
+<%= form_for :country, url: country_path(@country), method: :patch, remote: true do |f| %>
+  <% if @country.errors.any? %>
+    <% @country.errors.full_messages.each do |msg| %>
+      <div class="alert alert-danger"> <%=msg %></div>
+    <%end %>
+  <%end %>
+  <p>
+    Name <br>
+    <%= f.text_field(:name, {:class => 'form-control'}) %>
+  </p>
+
+  <p>
+    <%= f.submit({:class => 'btn btn-success'}) %>
+  </p>
+<% end %>
