@@ -1,0 +1,22 @@
+<h2>Edit city</h2>
+
+<%= form_for :city, url: cities_path(@city), method: :patch, remote: true do |f| %>
+  <% if @city.errors.any? %>
+    <% @city.errors.full_messages.each do |msg| %>
+      <div class="alert alert-danger"> <%=msg %></div>
+    <%end %>
+  <%end %>
+  <p>
+    Name <br>
+    <%= f.text_field(:name, {:class => 'form-control'}) %>
+  </p>
+  <br>
+  <div>
+    <label>Region</label>
+    <%= f.collection_select :region_id, Region.all, :id, :name,{},{class: "form-select"} %>
+  </div>
+  <br/>
+  <p>
+    <%= f.submit({:class => 'btn btn-success'}) %>
+  </p>
+<% end %>

@@ -1,0 +1,17 @@
+<h1>All cities</h1>
+
+<% @cities.each do |city| %>
+  <div class="card">
+    <div class="card-body">
+      <h5><%=city.name %></h5>
+
+      <%= link_to "Edit", edit_city_path(city), :class => 'btn btn-warning btn-sm'%>
+      <%= link_to "Delete", city_path(city), method: :delete,remote: true, data:{confirm: "Are you sure?"},:class => 'btn btn-danger btn-sm'%>
+      <%= link_to "More info", city_path(city), :class => 'btn btn-primary btn-sm'%>
+    </div>
+  </div>
+<% end %>
+<hr>
+<div class="alert alert-light"><%= link_to "Add new city", new_city_path,:class => 'btn btn-outline-primary' %>
+
+</div>

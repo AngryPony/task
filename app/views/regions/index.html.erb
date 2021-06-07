@@ -4,7 +4,7 @@
   <div class="card">
     <div class="card-body">
       <h5><%=region.name %></h5>
-
+      <p>country: <%=region.country.name %></p>
       <%= link_to "Edit", edit_region_path(region), :class => 'btn btn-warning btn-sm'%>
       <%= link_to "Delete", region_path(region), method: :delete,remote: true, data:{confirm: "Are you sure?"},:class => 'btn btn-danger btn-sm'%>
       <%= link_to "More info", region_path(region), :class => 'btn btn-primary btn-sm'%>

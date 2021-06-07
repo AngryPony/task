@@ -10,10 +10,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_06_185125) do
+ActiveRecord::Schema.define(version: 2021_06_07_134651) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "campsites", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.bigint "city_id"
+    t.bigint "region_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["city_id"], name: "index_campsites_on_city_id"
+    t.index ["region_id"], name: "index_campsites_on_region_id"
+  end
+
+  create_table "cities", force: :cascade do |t|
+    t.string "name"
+    t.bigint "region_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["region_id"], name: "index_cities_on_region_id"
+  end
 
   create_table "countries", force: :cascade do |t|
     t.string "name"
@@ -29,5 +48,8 @@ ActiveRecord::Schema.define(version: 2021_06_06_185125) do
     t.index ["country_id"], name: "index_regions_on_country_id"
   end
 
+  add_foreign_key "campsites", "cities"
+  add_foreign_key "campsites", "regions"
+  add_foreign_key "cities", "regions"
   add_foreign_key "regions", "countries"
 end
