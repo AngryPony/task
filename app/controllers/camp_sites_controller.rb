@@ -26,7 +26,7 @@ class CampSitesController < ApplicationController
     @campsite = Campsite.new(campsite_params)
 
     if @campsite.save
-      redirect_to ca, camp_sites_path
+      redirect_to camp_sites_path
     else
       render 'new', status: :unprocessable_entity
     end
@@ -45,7 +45,7 @@ class CampSitesController < ApplicationController
   private
 
   def campsite_params
-    params.require(:region).permit(:name, :region_id)
+    params.require(:campsite).permit(:name, :region_id, :city_id, :description)
   end
 end
 
