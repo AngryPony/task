@@ -23,6 +23,7 @@ class CitiesController < ApplicationController
   end
 
   def create
+
     @city = City.new(city_params)
 
     if @city.save
@@ -45,7 +46,9 @@ class CitiesController < ApplicationController
   private
 
   def city_params
-    params.require(:city).permit(:name, :region_id)
+    res = params.require(:city).permit(:name, :region_id)
+    params[:region_id].nil? ? res : res.merge!({ region_id: params[:region_id] }) #!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
   end
+
 end
 
