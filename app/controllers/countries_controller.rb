@@ -1,7 +1,7 @@
 class CountriesController < ApplicationController
 
   def index
-    @country = Country.all
+    @countries = Country.all
   end
 
   def new
@@ -19,10 +19,10 @@ class CountriesController < ApplicationController
   def update
     @country = Country.find(params[:id])
 
-    if (@country.update(country_params))
-      redirect_to countries_path
+    if @country.update(country_params)
+      redirect_to action: :show
     else
-      render 'edit'
+      render 'edit', status: :unprocessable_entity
     end
   end
 
@@ -35,7 +35,7 @@ class CountriesController < ApplicationController
   def create
     @country = Country.new(country_params)
 
-    if (@country.save)
+    if @country.save
       redirect_to countries_path
     else
       render 'new'
