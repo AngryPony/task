@@ -15,7 +15,7 @@
 <hr>
 
   <h5>Add new region</h5>
-  <%= form_for([@country, @region],scope: :admin, remote: true) do |f| %>
+  <%= form_for([@country, @region], remote: true) do |f| %>
     <p>
       New region <br>
       <%= f.text_field(:name, {:class => 'form-control'}) %>
