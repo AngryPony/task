@@ -1,12 +1,61 @@
-<h2><strong><%= @campsite.name %></strong></h2>
-
+<br>
+<div class="card ">
+  <div class="card-body">
+    <h3 class="card-title text-center"><%= @campsite.name %></h3>
 <hr>
-<p><%=@campsite.description %></p>
+    <div class="card">
+      <div class="card-header text-center">
+<h5>Description</h5>
+      </div>
+    </div>
+    <div class="card-body">
+      <blockquote class="blockquote mb-0">
+        <p><%=@campsite.description %></p>
+      </blockquote>
 <hr>
+      <ul class="list-group list-group-horizontal" style="width: auto"> <!-- Make centered! -->
 
-<p>region: <%=@campsite.region.country.name %></p> <!-- Country -->
-<p>region: <%=@campsite.region.name %></p> <!-- Region -->
+        <!-- Block for Country -->
+          <div class="card" style="width: 20rem;">
+            <div class="card-header">
+              Country
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item"><%=@campsite.region.country.name %></li>
+              <li class="list-group-item">A second item</li>
+              <li class="list-group-item">A third item</li>
+            </ul>
+          </div>
 
-<p>city: <%= @campsite.city.nil? ? "out of city" : @campsite.city.name %></p>
+        <!-- Block for region -->
+        <div class="card" style="width: 20rem;">
+          <div class="card-header">
+            Region
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item"><%=@campsite.region.name %></li>
+            <li class="list-group-item">A second item</li>
+            <li class="list-group-item">A third item</li>
+          </ul>
+        </div>
+
+        <!-- Block for city -->
+        <div class="card" style="width: 20rem;">
+          <div class="card-header">
+            City
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item"><%=@campsite.region.country.name %></li>
+            <li class="list-group-item"><%= @campsite.city.nil? ? "out of city" : @campsite.city.name %></li>
+            <li class="list-group-item">A third item</li>
+          </ul>
+        </div>
+
+      </ul>
+
+    </div>
+  </div>
 
 
+  </div>
+</div>

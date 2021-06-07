@@ -5,7 +5,7 @@
 <h4>Regions in this country</h4>
 
 <% @country.regions.each do |region| %>
-  <div class="card">
+  <div class="card text-dark bg-light mb-3" >
   <div class="card-body">
     <h5><%=region.name %></h5>
     <%= link_to "More info", region_path(region),:class => 'btn btn-outline-primary' %>
