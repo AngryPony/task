@@ -10,6 +10,7 @@ class CountriesController < ApplicationController
 
   def show
     @country = Country.find(params[:id])
+    @region = Region.new
   end
 
   def edit

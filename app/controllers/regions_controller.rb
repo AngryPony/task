@@ -24,6 +24,7 @@ class RegionsController < ApplicationController
   end
 
   def create
+
     @region = Region.new(region_params)
 
     if @region.save
@@ -47,7 +48,10 @@ class RegionsController < ApplicationController
   private
 
   def region_params
-    params.require(:region).permit(:name, :country_id)
+    res = params.require(:region).permit(:name, :country_id)
+    params[:country_id].nil? ? res : res.merge!({ country_id: params[:country_id] }) #!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
   end
+
+
 
 end
