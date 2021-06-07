@@ -1,0 +1,12 @@
+<h2><strong><%= @campsite.name %></strong></h2>
+
+<hr>
+<p><%=@campsite.description %></p>
+<hr>
+
+<p>region: <%=@campsite.region.country.name %></p> <!-- Country -->
+<p>region: <%=@campsite.region.name %></p> <!-- Region -->
+
+<p>city: <%= @campsite.city.nil? ? "out of city" : @campsite.city.name %></p>
+
+

@@ -1,0 +1,24 @@
+<h1>All campsites</h1>
+
+<% @campsites.each do |campsite| %>
+  <div class="card">
+    <div class="card-body">
+      <h5><%=campsite.name %></h5>
+      <p><%=campsite.description %></p>
+      <hr>
+      <p>region: <%=campsite.region.name%></p>
+
+      <p>city: <%= campsite.city.nil? ? "out of city" : campsite.city.name %></p>
+
+
+      <%= link_to "Edit", edit_camp_site_path(campsite), :class => 'btn btn-warning btn-sm'%>
+      <%= link_to "Delete", camp_site_path(campsite), method: :delete,remote: true, data:{confirm: "Are you sure?"},:class => 'btn btn-danger btn-sm'%>
+      <%= link_to "More info", camp_site_path(campsite), :class => 'btn btn-primary btn-sm'%>
+    </div>
+  </div>
+<% end %>
+<hr>
+
+<div class="alert alert-light"><%= link_to "Add new campsite", new_camp_site_path,:class => 'btn btn-outline-primary' %>
+
+</div>
