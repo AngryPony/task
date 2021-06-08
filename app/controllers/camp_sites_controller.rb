@@ -36,13 +36,14 @@ class CampSitesController < ApplicationController
     @campsite = Campsite.find(params[:id])
 
     if @campsite.update(campsite_params)
-      redirect_to action: :show
+      redirect_to camp_site_path(@campsite)
     else
       render 'edit', status: :unprocessable_entity
     end
   end
 
   private
+
 
   def campsite_params
     res = params.require(:campsite).permit(:name, :city_id, :region_id)

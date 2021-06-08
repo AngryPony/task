@@ -48,7 +48,7 @@ class CitiesController < ApplicationController
 
   def city_params
     res = params.require(:city).permit(:name, :region_id)
-    params[:region_id].nil? ? res : res.merge!({ region_id: params[:region_id] }) #!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    params[:region_id].nil? ? res : res.merge!({ region_id: params[:region_id] })
   end
 
 end
