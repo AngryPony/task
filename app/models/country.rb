@@ -1,5 +1,5 @@
 class Country < ApplicationRecord
-  has_many :regions
+  has_many :regions, dependent: :destroy # for cs destroy (1)
   has_many :campsites, through: :regions
 
   validates :name, presence: true, uniqueness: true
