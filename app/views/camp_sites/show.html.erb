@@ -13,41 +13,38 @@
         <p><%=@campsite.description %></p>
       </blockquote>
 <hr>
-      <ul class="list-group list-group-horizontal" style="width: auto"> <!-- Make centered! -->
+      <ul class="list-group list-group-horizontal " style="width: auto" > <!-- Make centered! -->
 
         <!-- Block for Country -->
-          <div class="card" style="width: 20rem;">
+          <div class="card" style="width: 30rem;">
             <div class="card-header">
               Country
             </div>
             <ul class="list-group list-group-flush">
               <li class="list-group-item"><%=@campsite.region.country.name %></li>
-              <li class="list-group-item">A second item</li>
-              <li class="list-group-item">A third item</li>
+              <li class="list-group-item "><%= link_to "See all countries", allCountries_path, class: "btn btn-outline-primary btn-sm"  %></li>
             </ul>
           </div>
 
         <!-- Block for region -->
-        <div class="card" style="width: 20rem;">
+        <div class="card" style="width: 30rem;">
           <div class="card-header">
             Region
           </div>
           <ul class="list-group list-group-flush">
             <li class="list-group-item"><%=@campsite.region.name %></li>
-            <li class="list-group-item">A second item</li>
-            <li class="list-group-item">A third item</li>
+            <li class="list-group-item"><%= link_to "See all regions", regions_path, class: "btn btn-outline-primary btn-sm" %></li>
           </ul>
         </div>
 
         <!-- Block for city -->
-        <div class="card" style="width: 20rem;">
+        <div class="card" style="width: 30rem;">
           <div class="card-header">
             City
           </div>
           <ul class="list-group list-group-flush">
-            <li class="list-group-item"><%=@campsite.region.country.name %></li>
             <li class="list-group-item"><%= @campsite.city.nil? ? "out of city" : @campsite.city.name %></li>
-            <li class="list-group-item">A third item</li>
+            <li class="list-group-item"><%= link_to "See all cities", cities_path, class: "btn btn-outline-primary btn-sm" %></li>
           </ul>
         </div>
 
