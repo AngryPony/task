@@ -5,4 +5,5 @@ class Country < ApplicationRecord
   validates :name, presence: true, uniqueness: true
 
   accepts_nested_attributes_for :regions
+  attr_accessor :del_confirm
 end
