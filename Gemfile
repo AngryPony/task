@@ -57,3 +57,9 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'turbolinks_render'
+
+group :development, :test do
+  gem 'rails-controller-testing'
+  gem 'rspec-rails', '~> 4.1.0'
+  gem 'simplecov'
+end

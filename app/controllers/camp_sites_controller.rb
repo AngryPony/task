@@ -45,7 +45,9 @@ class CampSitesController < ApplicationController
   private
 
   def campsite_params
-    params.require(:campsite).permit(:name, :region_id, :city_id, :description)
+    res = params.require(:campsite).permit(:name, :city_id, :region_id)
+    params[:city_id].nil? ? res : res.merge!({ city_id: params[:city_id], region_id: City.find(params[:city_id]).region_id })
   end
+
 end
 

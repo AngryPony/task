@@ -10,6 +10,7 @@ class CitiesController < ApplicationController
 
   def show
     @city = City.find(params[:id])
+    @camp_site = Campsite.new
   end
 
   def edit
