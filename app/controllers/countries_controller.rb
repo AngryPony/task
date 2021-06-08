@@ -3,7 +3,7 @@ class CountriesController < ApplicationController
   def index
     @countries = Country.all
     @countries.each do |country|
-      next if country.regions.length.zero
+      next if country.regions.length.zero?
 
       reg_list = country.regions.inject('') { |lst, p| "#{lst}#{p.name}, " }
       reg_list.chomp!(', ')

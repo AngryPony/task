@@ -2,6 +2,15 @@ class RegionsController < ApplicationController
 
   def index
     @regions = Region.all
+
+    @regions.each do |region|
+      next if region.cities.length.zero?
+
+      city_list = region.cities.inject('') { |lst, p| "#{lst}#{p.name}, " }
+      city_list.chomp!(', ')
+
+      region.del_confirm = "Some cities will be deleted: #{city_list}"
+    end
   end
 
   def new
