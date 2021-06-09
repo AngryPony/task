@@ -8,6 +8,16 @@
   </div>
 
   <div class="col-md-9">
+    <% if !@city.nil? %>
+      <h3>Campsites in city: <%= @city.name %></h3>
+      <br/>
+    <% elsif !@region.nil? %>
+      <h3>Campsites in region: <%= @region.name %></h3>
+      <br/>
+    <% elsif !@country.nil? %>
+      <h3>Campsites in country: <%= @country.name %></h3>
+      <br/>
+    <% end %>
     <div class="row">
       <% @campsites.each do |campsite| %>
 
@@ -17,6 +27,8 @@
             <div class="card-body">
               <p class="card-text"><%=campsite.description %></p>
               <a class="card-link"><%=link_to campsite.region.name,regions_path%></a>
+              <%= campsite.city.nil? ? "" :
+                    link_to(campsite.city.name, cards_country_region_city_camp_sites_path(campsite.city.region.country,campsite.city.region,campsite.city)) %>
               <a class="card-link">
               </a>
             </div>
