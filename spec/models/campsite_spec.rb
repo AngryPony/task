@@ -45,10 +45,10 @@ RSpec.describe Campsite, type: :model do
   context 'delete' do
 
     it 'delete single campsite' do
-      region = Region.all.first
-      city = City.all.first
-      campsite = Campsite.new({region: region, city: city, name: 'Campsite' })
-      expect(campsite.destroy).to be true
+      campsite = Campsite.all.first
+      campsite_id = campsite.id
+      campsite.destroy
+      expect(Campsite.find_by(id: campsite_id).nil?).to be true
     end
   end
 
