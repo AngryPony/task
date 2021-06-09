@@ -27,4 +27,36 @@ RSpec.describe Region, type: :model do
     end
   end
 
+  context 'delete' do
+
+    before(:each) do
+      @region = Region.all.first
+    end
+
+    it 'delete single region' do
+      region_id = @region.id
+      @region.destroy
+      expect(Region.find_by(id: region_id).nil?).to be true
+    end
+
+    it 'cascade delete with city' do
+      city = City.new({region: @region, name: 'city'})
+      city.save
+      city_id = city.id
+      expect(City.find_by(id: city_id).nil?).to be false
+      @region.destroy
+      expect(City.find_by(id: city_id).nil?).to be true
+    end
+
+    it 'cascade delete with campsite' do
+      campsite = Campsite.new({region: @region, name: 'camp'})
+      campsite.save
+      campsite_id = campsite.id
+      expect(Campsite.find_by(id: campsite_id).nil?).to be false
+      @region.destroy
+      expect(Campsite.find_by(id: campsite_id).nil?).to be true
+    end
+
+  end
+
 end
