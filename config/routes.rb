@@ -22,4 +22,20 @@ Rails.application.routes.draw do
 
   end
 
+  namespace :cards do
+    resources :camp_sites, only: [:index]
+    resources :countries, only: [] do
+      resources :camp_sites, only: [:index]
+      resources :regions, only: [] do
+        resources :camp_sites, only: [:index]
+        resources :cities, only: [] do
+          resources :camp_sites, only: [:index]
+        end
+      end
+    end
+  end
+
+
+
+
 end
