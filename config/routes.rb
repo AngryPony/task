@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'cards#index', as: 'home'
+  root "application#index"
   get 'allCountries' => 'countries#index', as: 'allCountries'
 
   scope :admin do
