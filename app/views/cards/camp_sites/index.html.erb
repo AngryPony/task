@@ -26,39 +26,19 @@
             <div class="card-header"><h5><%=campsite.name %></h5></div>
             <div class="card-body">
               <p class="card-text"><%=campsite.description %></p>
-              <a class="card-link"><%=link_to campsite.region.name,regions_path%></a>
-              <%= campsite.city.nil? ? "" :
-                    link_to(campsite.city.name, cards_country_region_city_camp_sites_path(campsite.city.region.country,campsite.city.region,campsite.city)) %>
+
+              <a class="card-link"><a>region: </a> <%=link_to campsite.region.name,regions_path%></a>
+              <br>
               <a class="card-link">
+                <%= !campsite.city.nil? ? "<a>city: </a>".html_safe: ""%>
+                <%= !campsite.city.nil? ? link_to(campsite.city.name, cards_country_region_city_camp_sites_path(campsite.city.region.country, campsite.city.region, campsite.city)) : ""%>
               </a>
+
             </div>
           </div>
         </div>
-
-
       <% end %>
       </div>
   </div>
 </div>
 </div>
-
-
-<!--  <div class="card">-->
-<!--    <div class="card-body">-->
-<!--      <h5></h5>-->
-<!--      <p></p>-->
-<!--      <hr>-->
-<!--      <p>region: <%#=campsite.region.name%></p>-->
-
-<!--      <p>city: <%#= campsite.city.nil? ? "out of city" : campsite.city.name %></p>-->
-
-
-      <%#= link_to "Edit", edit_camp_site_path(campsite), :class => 'btn btn-warning btn-sm'%>
-      <%#= link_to "Delete", camp_site_path(campsite), method: :delete,remote: true, data:{confirm: "Are you sure?"},:class => 'btn btn-danger btn-sm'%>
-      <%#= link_to "More info", camp_site_path(campsite), :class => 'btn btn-primary btn-sm'%>
-<!--    </div>-->
-<!--  </div>-->
-
-
-
-<!--</div>-->

@@ -10,12 +10,12 @@
     </h2>
     <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
       <div class="accordion-body">
-
+        <ul class="list-group">
         <% @countries.each do |country| %>
           <%= link_to country.name, cards_country_camp_sites_path(country) %>
         <% end %>
         <%= link_to "All countries", cards_camp_sites_path %>
-
+        </ul>
       </div>
     </div>
   </div>
@@ -27,12 +27,12 @@
     </h2>
     <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTwo">
       <div class="accordion-body">
-
+        <ul class="list-group">
         <% @regions.each do |region| %>
           <%= link_to region.name, cards_country_region_camp_sites_path(region.country, region)%>
         <% end %>
         <%= link_to "All regions", cards_country_camp_sites_path(@country) unless @country.nil? %>
-
+        </ul>
       </div>
     </div>
   </div>
@@ -44,12 +44,12 @@
     </h2>
     <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingThree">
       <div class="accordion-body">
-
+        <ul class="list-group">
         <% @cities.each do |city| %>
           <%= link_to city.name, cards_country_region_city_camp_sites_path(city.region.country, city.region, city)%>
         <% end %>
         <%= link_to "All cities", cards_country_region_camp_sites_path(@region.country,@region) unless @region.nil? %>
-
+        </ul>
       </div>
     </div>
   </div>
