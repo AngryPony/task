@@ -1,0 +1,28 @@
+<h2><strong><%= @region.name %></strong></h2>
+<p>country: <%=@region.country.name %></p>
+<hr>
+
+<h4>Cities in this region</h4>
+
+<% @region.cities.each do |city| %>
+  <div class="card text-dark bg-light mb-3" >
+    <div class="card-body">
+    <h5><%=city.name %></h5>
+    <%= link_to "More info", city_path(city),:class => 'btn btn-outline-primary ' %>
+    </div>
+  </div>
+<% end %>
+<hr>
+
+
+<h5>Add new city</h5>
+<%= form_for([@region, @city], remote: true) do |f|%>
+  <p>
+    New city <br>
+    <%= f.text_field(:name, {:class => 'form-control'}) %>
+  </p>
+
+  <p>
+    <%= f.submit("Add",{:class => 'btn btn-warning'}) %>
+  </p>
+<% end %>
