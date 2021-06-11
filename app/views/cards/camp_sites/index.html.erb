@@ -17,6 +17,9 @@
     <% elsif !@country.nil? %>
       <h3>Campsites in country: <%= @country.name %></h3>
       <br/>
+    <% else %>
+      <h3>All campsites</h3>
+      <br/>
     <% end %>
     <div class="row">
       <% @campsites.each do |campsite| %>
