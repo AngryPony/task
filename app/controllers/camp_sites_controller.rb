@@ -1,7 +1,7 @@
 class CampSitesController < ApplicationController
 
   def index
-    @campsites = Campsite.all
+    @campsites = Campsite.paginate(page: params[:page], per_page: 8)
   end
 
   def new
