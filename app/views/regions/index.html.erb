@@ -11,6 +11,8 @@
     </div>
   </div>
 <% end %>
+<br>
+<%= will_paginate @campsites, renderer: 'BootstrapPaginationHelper::LinkRenderer' %>
 <hr>
 <div class="alert alert-light"><%= link_to "Add new region", new_region_path,:class => 'btn btn-outline-primary' %>
 

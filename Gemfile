@@ -67,3 +67,6 @@ end
 
 gem 'faker'
 
+gem 'will_paginate'
+
+gem 'will_paginate-bootstrap'
