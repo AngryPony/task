@@ -1,0 +1,23 @@
+<h1>Search Results</h1>
+<br>
+<div class="row">
+  <% @campsites.each do |campsite| %>
+
+    <div class="col-md-4">
+      <div class="card border-info mb-3">
+        <div class="card-header"><h5><%=campsite.name %></h5></div>
+        <div class="card-body">
+          <p class="card-text"><%=campsite.description %></p>
+
+          <a class="card-link"><a>region: </a> <%=link_to campsite.region.name,cards_country_region_camp_sites_path(campsite.region.country, campsite.region)%></a>
+          <br>
+          <a class="card-link">
+            <%= !campsite.city.nil? ? "<a>city: </a>".html_safe: ""%>
+            <%= !campsite.city.nil? ? link_to(campsite.city.name, cards_country_region_city_camp_sites_path(campsite.city.region.country, campsite.city.region, campsite.city)) : ""%>
+          </a>
+
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

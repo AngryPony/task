@@ -23,6 +23,9 @@ class Cards::CampSitesController < CampSitesController
     @cities = @region.nil? ? City.all : @region.cities
   end
 
+  def search
+    @campsites = Campsite.where("name LIKE ?","%" + params[:q] + "%")
+  end
 
 
 end

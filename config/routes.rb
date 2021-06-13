@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   root "application#index"
   get 'allCountries' => 'countries#index', as: 'allCountries'
+  get 'search', to: "cards/camp_sites#search"
 
   scope :admin do
 
