@@ -49,10 +49,11 @@
         </div>
 
       </ul>
-
+      <br>
+      <%= link_to "Edit", edit_camp_site_path(@campsite), :class => 'btn btn-warning btn'%>
+      <%= link_to "Delete", camp_site_path(@campsite), method: :delete,remote: true, data:{confirm: "Are you sure?"},:class => 'btn btn-danger btn'%>
     </div>
   </div>
-
 
   </div>
 </div>

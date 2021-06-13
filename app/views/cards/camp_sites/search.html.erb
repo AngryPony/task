@@ -14,8 +14,10 @@
           <a class="card-link">
             <%= !campsite.city.nil? ? "<a>city: </a>".html_safe: ""%>
             <%= !campsite.city.nil? ? link_to(campsite.city.name, cards_country_region_city_camp_sites_path(campsite.city.region.country, campsite.city.region, campsite.city)) : ""%>
+            <br>
+            <br>
+            <%= link_to "More info", camp_site_path(campsite), :class => 'btn btn-primary btn-sm'%>
           </a>
-
         </div>
       </div>
     </div>
